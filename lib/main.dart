@@ -4,6 +4,7 @@ void main() {
   runApp(const MyApp());
 }
 
+//test
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -69,7 +70,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -78,20 +78,30 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Color.fromRGBO(70,29,124,1),
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text.rich(TextSpan( children: [ TextSpan(text:"LSU", style: TextStyle(color: Color.fromRGBO(253,208,35,1) , fontSize: 45,fontFamily: 'Forza') ),TextSpan(text:"  Scavenger Hunt", style: TextStyle(color: Colors.white , fontSize: 30,fontFamily: 'Forza') )]))
-
-      ),
+          // TRY THIS: Try changing the color here to a specific color (to
+          // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
+          // change color while the other colors stay the same.
+          backgroundColor: Color.fromRGBO(70, 29, 124, 1),
+          // Here we take the value from the MyHomePage object that was created by
+          // the App.build method, and use it to set our appbar title.
+          title: Text.rich(TextSpan(children: [
+            TextSpan(
+                text: "LSU",
+                style: TextStyle(
+                    color: Color.fromRGBO(253, 208, 35, 1),
+                    fontSize: 45,
+                    fontFamily: 'Forza')),
+            TextSpan(
+                text: "  Scavenger Hunt",
+                style: TextStyle(
+                    color: Colors.white, fontSize: 30, fontFamily: 'Forza'))
+          ]))),
       body: Center(
         child: LayoutBuilder(
           builder: (context, constraints) {
             double mapWidth = constraints.maxWidth;
-            double mapHeight = mapWidth * (1080 / 1920); // Adjust aspect ratio based on your image
+            double mapHeight = mapWidth *
+                (1080 / 1920); // Adjust aspect ratio based on your image
 
             return Stack(
               children: [
@@ -106,7 +116,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                Positioned(//LSU STADIUM
+                Positioned(
+                  //LSU STADIUM
                   top: mapHeight * 0.72, // Adjust relative to the map
                   left: mapWidth * 0.48, // Adjust relative to the map
                   child: IconButton(
@@ -118,7 +129,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                Positioned(//PFT
+                Positioned(
+                  //PFT
                   top: mapHeight * 0.577, // Adjust relative to the map
                   left: mapWidth * 0.76, // Adjust relative to the map
                   child: IconButton(
@@ -130,7 +142,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                Positioned(//BUSINESS BUILDING
+                Positioned(
+                  //BUSINESS BUILDING
                   top: mapHeight * 0.52, // Adjust relative to the map
                   left: mapWidth * 0.8, // Adjust relative to the map
                   child: IconButton(
@@ -142,7 +155,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                Positioned(//library
+                Positioned(
+                  //library
                   top: mapHeight * 0.42, // Adjust relative to the map
                   left: mapWidth * 0.42, // Adjust relative to the map
                   child: IconButton(
@@ -154,7 +168,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                Positioned(//student union
+                Positioned(
+                  //student union
                   top: mapHeight * 0.28, // Adjust relative to the map
                   left: mapWidth * 0.54, // Adjust relative to the map
                   child: IconButton(
@@ -172,7 +187,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     );
-       // This trailing comma makes auto-formatting nicer for build methods.
-
+    // This trailing comma makes auto-formatting nicer for build methods.
   }
 }
