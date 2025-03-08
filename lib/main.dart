@@ -135,9 +135,12 @@ class _MyHomePageState extends State<MyHomePage> {
                             height: mapHeight,
                             child: Stack(
                               children: [
-                                Image.asset(
-                                    currentpage,
-                                    fit: BoxFit.fill
+                                Align(
+                                  alignment: Alignment.center,
+                                  child: Image.asset(
+                                      currentpage,
+                                      fit: BoxFit.fill
+                                  ),
                                 ),
                                 if(currentpage == 'Images/firstF.png')...[
                                   Positioned(
