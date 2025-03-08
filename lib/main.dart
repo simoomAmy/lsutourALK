@@ -103,8 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: LayoutBuilder(
           builder: (context, constraints) {
             double mapWidth = constraints.maxWidth;
-            double mapHeight = mapWidth *
-                (1080 / 1920) * 0.70; // Adjust aspect ratio based on your image
+            double mapHeight = constraints.maxHeight*0.60;// Adjust aspect ratio based on your image
 
             return Stack(
               children: [
@@ -121,31 +120,60 @@ class _MyHomePageState extends State<MyHomePage> {
                           ElevatedButton(onPressed: changeMap3 , child: Text('  Third Floor  '))
                         ],
                       ),
-                    ),//buttons for the floors
+                    ),//buttons for the floors above
                     Expanded(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(bottom: 30.0),
-                            child: Text('    Click the buttons to solve all \nthe problems and end your journey.', style: TextStyle(color: Color.fromRGBO(253, 208, 35, 1),fontSize: 30, fontFamily: 'Forza')),
+                            child: Text('    Click the buttons to find all \nthe keys and end your journey.', style: TextStyle(color: Color.fromRGBO(253, 208, 35, 1),fontSize: 30, fontFamily: 'Forza')),
                           ),
                           SizedBox(
                             width: mapWidth,
                             height: mapHeight,
-                            child: Image.asset(
-                                  currentpage,
-                                  fit: BoxFit.fill,
-
-
-                            ),
+                            child: Stack(
+                              children: [
+                                Image.asset(
+                                    currentpage,
+                                    fit: BoxFit.fill
+                                ),
+                                if(currentpage == 'Images/firstF.png')...[
+                                  Positioned(
+                                    top: mapHeight * 0.12,
+                                    left: mapWidth * 0.18,
+                                    child: IconButton(
+                                      onPressed: () {},
+                                      icon: Icon(
+                                        Icons.not_listed_location_sharp,
+                                        size: 50,
+                                        color: Color.fromRGBO(70, 29, 124, 1),
+                                      ),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    top: mapHeight * 0.10,
+                                    left: mapWidth * 0.10,
+                                    child: IconButton(
+                                      onPressed: () {},
+                                      icon: Icon(
+                                        Icons.not_listed_location_sharp,
+                                        size: 50,
+                                        color: Color.fromRGBO(253, 208, 35, 1),
+                                      ),
+                                    ),
+                                  ),
+                                ]
+                              ]
+                            )
                           ),
                         ],
                       ),
                     ),
                   ],
                 ),
+
 
                 // Positioned(
                 //   //LSU STADIUM
