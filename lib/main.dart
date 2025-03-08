@@ -96,6 +96,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(
                     color: Colors.white, fontSize: 30, fontFamily: 'Forza'))
           ]))),
+      //above this is the app bar please do not touch
+
       body: Center(
         child: LayoutBuilder(
           builder: (context, constraints) {
@@ -105,82 +107,109 @@ class _MyHomePageState extends State<MyHomePage> {
 
             return Stack(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(40.0),
-                  child: Container(
-                    width: mapWidth,
-                    height: mapHeight,
-                    child: Image.asset(
-                      'Images/LSUM.png',
-                      fit: BoxFit.cover,
+
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 50.0,top: 500.0, bottom: 500.0),
+                      child: Column(//these are the buttons
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Row(
+                            children: [
+                              ElevatedButton(onPressed: null , child: Text('  First Floor  '))
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              ElevatedButton(onPressed: null , child: Text('Second Floor'))
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              ElevatedButton(onPressed: null , child: Text('  Third Floor  '))
+                            ],
+                          )
+                        ],
+                      ),
+                    ),//buttons for the floors
+                    Padding(
+                      padding: const EdgeInsets.all(40.0),
+                      child: Container(
+                        child: Image.asset(
+                          'Images/LSUM.png',
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                Positioned(
-                  //LSU STADIUM
-                  top: mapHeight * 0.72, // Adjust relative to the map
-                  left: mapWidth * 0.48, // Adjust relative to the map
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.not_listed_location_sharp,
-                      size: 50,
-                      color: Color.fromRGBO(253, 208, 35, 1),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  //PFT
-                  top: mapHeight * 0.577, // Adjust relative to the map
-                  left: mapWidth * 0.76, // Adjust relative to the map
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.not_listed_location_sharp,
-                      size: 50,
-                      color: Color.fromRGBO(253, 208, 35, 1),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  //BUSINESS BUILDING
-                  top: mapHeight * 0.52, // Adjust relative to the map
-                  left: mapWidth * 0.8, // Adjust relative to the map
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.not_listed_location_sharp,
-                      size: 50,
-                      color: Color.fromRGBO(253, 208, 35, 1),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  //library
-                  top: mapHeight * 0.42, // Adjust relative to the map
-                  left: mapWidth * 0.42, // Adjust relative to the map
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.not_listed_location_sharp,
-                      size: 50,
-                      color: Color.fromRGBO(253, 208, 35, 1),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  //student union
-                  top: mapHeight * 0.28, // Adjust relative to the map
-                  left: mapWidth * 0.54, // Adjust relative to the map
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.not_listed_location_sharp,
-                      size: 50,
-                      color: Color.fromRGBO(253, 208, 35, 1),
-                    ),
-                  ),
-                ),
+                  ],
+                )
+
+                // Positioned(
+                //   //LSU STADIUM
+                //   top: mapHeight * 0.72, // Adjust relative to the map
+                //   left: mapWidth * 0.48, // Adjust relative to the map
+                //   child: IconButton(
+                //     onPressed: () {},
+                //     icon: Icon(
+                //       Icons.not_listed_location_sharp,
+                //       size: 50,
+                //       color: Color.fromRGBO(253, 208, 35, 1),
+                //     ),
+                //   ),
+                // ),
+                // Positioned(
+                //   //PFT
+                //   top: mapHeight * 0.577, // Adjust relative to the map
+                //   left: mapWidth * 0.76, // Adjust relative to the map
+                //   child: IconButton(
+                //     onPressed: () {},
+                //     icon: Icon(
+                //       Icons.not_listed_location_sharp,
+                //       size: 50,
+                //       color: Color.fromRGBO(253, 208, 35, 1),
+                //     ),
+                //   ),
+                // ),
+                // Positioned(
+                //   //BUSINESS BUILDING
+                //   top: mapHeight * 0.52, // Adjust relative to the map
+                //   left: mapWidth * 0.8, // Adjust relative to the map
+                //   child: IconButton(
+                //     onPressed: () {},
+                //     icon: Icon(
+                //       Icons.not_listed_location_sharp,
+                //       size: 50,
+                //       color: Color.fromRGBO(253, 208, 35, 1),
+                //     ),
+                //   ),
+                // ),
+                // Positioned(
+                //   //library
+                //   top: mapHeight * 0.42, // Adjust relative to the map
+                //   left: mapWidth * 0.42, // Adjust relative to the map
+                //   child: IconButton(
+                //     onPressed: () {},
+                //     icon: Icon(
+                //       Icons.not_listed_location_sharp,
+                //       size: 50,
+                //       color: Color.fromRGBO(253, 208, 35, 1),
+                //     ),
+                //   ),
+                // ),
+                // // Positioned(
+                //   //student union
+                //   top: mapHeight * 0.28, // Adjust relative to the map
+                //   left: mapWidth * 0.54, // Adjust relative to the map
+                //   child: IconButton(
+                //     onPressed: () {},
+                //     icon: Icon(
+                //       Icons.not_listed_location_sharp,
+                //       size: 50,
+                //       color: Color.fromRGBO(253, 208, 35, 1),
+                //     ),
+                //   ),
+                // ),
               ],
             );
           },
