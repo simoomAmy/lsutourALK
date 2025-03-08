@@ -104,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
           builder: (context, constraints) {
             double mapWidth = constraints.maxWidth;
             double mapHeight = mapWidth *
-                (1080 / 1920); // Adjust aspect ratio based on your image
+                (1080 / 1920) * 0.70; // Adjust aspect ratio based on your image
 
             return Stack(
               children: [
@@ -112,39 +112,40 @@ class _MyHomePageState extends State<MyHomePage> {
                 Row(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 50.0,top: 500.0, bottom: 500.0),
+                      padding: const EdgeInsets.only(right: 20.0, left: 50.0,top: 500.0, bottom: 500.0),
                       child: Column(//these are the buttons
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Row(
-                            children: [
-                              ElevatedButton(onPressed: changeMap1 , child: Text('  First Floor  '))
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              ElevatedButton(onPressed: changeMap2 , child: Text('Second Floor'))
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              ElevatedButton(onPressed: changeMap3 , child: Text('  Third Floor  '))
-                            ],
-                          )
+                          ElevatedButton(onPressed: changeMap1 , child: Text('  First Floor  ')),
+                          ElevatedButton(onPressed: changeMap2 , child: Text('Second Floor')),
+                          ElevatedButton(onPressed: changeMap3 , child: Text('  Third Floor  '))
                         ],
                       ),
                     ),//buttons for the floors
-                    Padding(
-                      padding: const EdgeInsets.all(40.0),
-                      child: Container(
-                        child: Image.asset(
-                          currentpage,
-                          fit: BoxFit.cover,
-                        ),
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 30.0),
+                            child: Text('    Click the buttons to solve all \nthe problems and end your journey.', style: TextStyle(color: Color.fromRGBO(253, 208, 35, 1),fontSize: 30, fontFamily: 'Forza')),
+                          ),
+                          SizedBox(
+                            width: mapWidth,
+                            height: mapHeight,
+                            child: Image.asset(
+                                  currentpage,
+                                  fit: BoxFit.fill,
+
+
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
-                )
+                ),
 
                 // Positioned(
                 //   //LSU STADIUM
