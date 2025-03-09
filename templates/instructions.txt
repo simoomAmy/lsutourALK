@@ -1,0 +1,7 @@
+FOR MULTIPLE CHOICE TEMPLATE;
+  Replace template class name with appropriate class name
+  Replace image with appropriate image for questions
+  Edit question and answers text
+  Done
+  
+FOR FILL IN THE BLANK TEMPLATE;
