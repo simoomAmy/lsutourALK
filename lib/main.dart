@@ -2687,7 +2687,7 @@ class TrophyWall extends StatelessWidget {
                 // Navigate to the next screen
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const TeslaCoilQ()),
+                  MaterialPageRoute(builder: (context) => const TrophywallQ()),
                 );
               },
               style: ElevatedButton.styleFrom(
