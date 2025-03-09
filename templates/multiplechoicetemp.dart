@@ -93,27 +93,6 @@ class template extends StatelessWidget { //change based on question name
 }
 
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      title: Text(
-        "LSU Scavenger Hunt",
-        style: TextStyle(
-          color: Colors.yellow,
-          fontWeight: FontWeight.bold,
-          fontSize: 30,
-        ),
-      ),
-      backgroundColor: Colors.deepPurple,
-      centerTitle: true,
-    );
-  }
-
-  @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
-}
-
 class QuizPage extends StatefulWidget {
   const QuizPage({super.key});
 
