@@ -2473,7 +2473,7 @@ class TeslaCoil extends StatelessWidget {
             const SizedBox(height: 20), // Spacer
             // Image
             Image.asset(
-              'images/Tesla_Coil.jpeg', // Replace with appropriate image for question
+              'images/teslacoil_farview.jpeg', // Replace with appropriate image for question
 
               height: 350,
               fit: BoxFit.cover,
