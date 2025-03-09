@@ -48,13 +48,22 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
   String question = "What is the name of LSU's mascot?";
   List<String> options = ["Fred", "Mike", "Murphy", "Earl"];
-  int correctAnswerIndex = 1; // Paris is correct
+  int correctAnswerIndex = 1; // "Mike" is correct
   int? selectedAnswerIndex;
+  bool isCorrect = false; // Track if the answer is correct
 
   void checkAnswer(int index) {
     setState(() {
       selectedAnswerIndex = index;
+      isCorrect = (index == correctAnswerIndex);
     });
+  }
+
+  void goToNextScreen() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const NextScreen()),
+    );
   }
 
   @override
@@ -107,11 +116,49 @@ class _QuizPageState extends State<QuizPage> {
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color:
+                      selectedAnswerIndex == correctAnswerIndex
+                          ? Colors.green
+                          : Colors.red,
                 ),
                 textAlign: TextAlign.center,
               ),
+            SizedBox(height: 20),
+            if (isCorrect)
+              ElevatedButton(
+                onPressed: goToNextScreen, //THIS IS WHERE TO CHANGE SCREEN NAVIGATION
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  foregroundColor: Colors.white,
+                  padding: EdgeInsets.symmetric(vertical: 12),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                child: const Text("Next", style: TextStyle(fontSize: 18)),
+              ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class NextScreen extends StatelessWidget {
+  const NextScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Next Challenge"),
+        backgroundColor: Colors.deepPurple,
+      ),
+      body: const Center(
+        child: Text(
+          "Welcome to the next challenge! 🎯",
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          textAlign: TextAlign.center,
         ),
       ),
     );
