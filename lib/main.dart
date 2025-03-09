@@ -103,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: LayoutBuilder(
           builder: (context, constraints) {
             double mapWidth = constraints.maxWidth;
-            double mapHeight = constraints.maxHeight*0.60;// Adjust aspect ratio based on your image
+            double mapHeight = constraints.maxHeight*0.80;// Adjust aspect ratio based on your image
 
             return Stack(
               children: [
@@ -111,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Row(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(right: 20.0, left: 50.0,top: 500.0, bottom: 500.0),
+                      padding: const EdgeInsets.only(  left: 70.0,top: 500.0, bottom: 500.0),
                       child: Column(//these are the buttons
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -144,10 +144,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ),
                                 if(currentpage == 'Images/firstF.png')...[
                                   Positioned(
-                                    top: mapHeight * 0.12,
-                                    left: mapWidth * 0.18,
+                                    top: mapHeight * 0.16,
+                                    left: mapWidth * 0.33,
                                     child: IconButton(
-                                      onPressed: () {},
+                                      onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => QuestionMonstersBuy()));},
                                       icon: Icon(
                                         Icons.not_listed_location_sharp,
                                         size: 50,
@@ -156,14 +156,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ),
                                   ),
                                   Positioned(
-                                    top: mapHeight * 0.10,
-                                    left: mapWidth * 0.10,
+                                    top: mapHeight * 0.16,
+                                    left: mapWidth * 0.43,
                                     child: IconButton(
                                       onPressed: () {},
                                       icon: Icon(
                                         Icons.not_listed_location_sharp,
                                         size: 50,
-                                        color: Color.fromRGBO(253, 208, 35, 1),
+                                        color: Color.fromRGBO(70, 29, 124, 1),
                                       ),
                                     ),
                                   ),
@@ -251,4 +251,22 @@ class _MyHomePageState extends State<MyHomePage> {
     );
     // This trailing comma makes auto-formatting nicer for build methods.
   }
+}
+
+class QuestionMonstersBuy extends StatelessWidget{
+  const QuestionMonstersBuy({Key? key}):super(key: key);
+  
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(title: Text("EXample page")),
+      body:Center(
+        child: Text("next page"),
+      )
+        
+    );
+        
+
+  }
+
 }
