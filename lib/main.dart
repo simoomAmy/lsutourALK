@@ -1663,7 +1663,7 @@ class AmongUs extends StatelessWidget {
             const SizedBox(height: 20), // Spacer
             // Image
             Image.asset(
-              'images/AmongUs.jpeg', // Replace with appropriate image for question
+              'images/AmongUsClearView.jpeg', // Replace with appropriate image for question
 
               height: 350,
               fit: BoxFit.cover,
