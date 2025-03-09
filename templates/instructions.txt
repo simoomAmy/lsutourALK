@@ -1,7 +1,9 @@
 FOR MULTIPLE CHOICE TEMPLATE;
-  Replace template class name with appropriate class name
+  Replace template class name with appropriate class name, making sure to be in upper camelcase
   Replace image with appropriate image for questions
   Edit question and answers text
+  Add question to the bottom of the main file
+  Link the question to the appropriate button on the main screen
   Done
   
 FOR FILL IN THE BLANK TEMPLATE;
