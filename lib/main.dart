@@ -80,31 +80,43 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-          // TRY THIS: Try changing the color here to a specific color (to
-          // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-          // change color while the other colors stay the same.
-          backgroundColor: Color.fromRGBO(70, 29, 124, 1),
-          // Here we take the value from the MyHomePage object that was created by
-          // the App.build method, and use it to set our appbar title.
-          title: Text.rich(TextSpan(children: [
-            TextSpan(
+        // TRY THIS: Try changing the color here to a specific color (to
+        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
+        // change color while the other colors stay the same.
+        backgroundColor: Color.fromRGBO(70, 29, 124, 1),
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text.rich(
+          TextSpan(
+            children: [
+              TextSpan(
                 text: "LSU",
                 style: TextStyle(
-                    color: Color.fromRGBO(253, 208, 35, 1),
-                    fontSize: 45,
-                    fontFamily: 'Forza')),
-            TextSpan(
+                  color: Color.fromRGBO(253, 208, 35, 1),
+                  fontSize: 45,
+                  fontFamily: 'Forza',
+                ),
+              ),
+              TextSpan(
                 text: "  Scavenger Hunt",
                 style: TextStyle(
-                    color: Colors.white, fontSize: 30, fontFamily: 'Forza'))
-          ]))),
-      //above this is the app bar please do not touch
+                  color: Colors.white,
+                  fontSize: 30,
+                  fontFamily: 'Forza',
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
 
+      //above this is the app bar please do not touch
       body: Center(
         child: LayoutBuilder(
           builder: (context, constraints) {
             double mapWidth = constraints.maxWidth;
-            double mapHeight = constraints.maxHeight *
+            double mapHeight =
+                constraints.maxHeight *
                 0.80; // Adjust aspect ratio based on your image
 
             return Stack(
@@ -113,20 +125,25 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 10.0, vertical: 20.0),
+                        horizontal: 10.0,
+                        vertical: 20.0,
+                      ),
                       child: Column(
                         //these are the buttons
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           ElevatedButton(
-                              onPressed: changeMap1,
-                              child: Text('  First Floor  ')),
+                            onPressed: changeMap1,
+                            child: Text('  First Floor  '),
+                          ),
                           ElevatedButton(
-                              onPressed: changeMap2,
-                              child: Text('Second Floor')),
+                            onPressed: changeMap2,
+                            child: Text('Second Floor'),
+                          ),
                           ElevatedButton(
-                              onPressed: changeMap3,
-                              child: Text('  Third Floor  '))
+                            onPressed: changeMap3,
+                            child: Text('  Third Floor  '),
+                          ),
                         ],
                       ),
                     ), //buttons for the floors above
@@ -138,20 +155,25 @@ class _MyHomePageState extends State<MyHomePage> {
                           Padding(
                             padding: const EdgeInsets.only(bottom: 30.0),
                             child: Text(
-                                '    Click the buttons to find all \nthe keys and end your journey.',
-                                style: TextStyle(
-                                    color: Color.fromRGBO(253, 208, 35, 1),
-                                    fontSize: 30,
-                                    fontFamily: 'Forza')),
+                              '    Click the buttons to find all \nthe keys and end your journey.',
+                              style: TextStyle(
+                                color: Color.fromRGBO(253, 208, 35, 1),
+                                fontSize: 30,
+                                fontFamily: 'Forza',
+                              ),
+                            ),
                           ),
                           SizedBox(
-                              width: mapWidth,
-                              height: mapHeight,
-                              child: Stack(children: [
+                            width: mapWidth,
+                            height: mapHeight,
+                            child: Stack(
+                              children: [
                                 Align(
                                   alignment: Alignment.center,
-                                  child: Image.asset(currentpage,
-                                      fit: BoxFit.contain),
+                                  child: Image.asset(
+                                    currentpage,
+                                    fit: BoxFit.contain,
+                                  ),
                                 ),
                                 if (currentpage == 'Images/firstF.png') ...[
                                   Positioned(
@@ -161,11 +183,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                     child: IconButton(
                                       onPressed: () {
                                         Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) => Monster(
-                                                      title: '',
-                                                    )));
+                                          context,
+                                          MaterialPageRoute(
+                                            builder:
+                                                (context) => Monster(title: ''),
+                                          ),
+                                        );
                                       },
                                       icon: Icon(
                                         Icons.not_listed_location_sharp,
@@ -181,10 +204,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                     child: IconButton(
                                       onPressed: () {
                                         Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    Plane(title: '')));
+                                          context,
+                                          MaterialPageRoute(
+                                            builder:
+                                                (context) => Plane(title: ''),
+                                          ),
+                                        );
                                       },
                                       icon: Icon(
                                         Icons.not_listed_location_sharp,
@@ -200,11 +225,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                     child: IconButton(
                                       onPressed: () {
                                         Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) => Arm(
-                                                      title: '',
-                                                    )));
+                                          context,
+                                          MaterialPageRoute(
+                                            builder:
+                                                (context) => Arm(title: ''),
+                                          ),
+                                        );
                                       },
                                       icon: Icon(
                                         Icons.not_listed_location_sharp,
@@ -220,10 +246,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                     child: IconButton(
                                       onPressed: () {
                                         Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    Bluebook(title: '')));
+                                          context,
+                                          MaterialPageRoute(
+                                            builder:
+                                                (context) =>
+                                                    Bluebook(title: ''),
+                                          ),
+                                        );
                                       },
                                       icon: Icon(
                                         Icons.not_listed_location_sharp,
@@ -241,10 +270,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                     child: IconButton(
                                       onPressed: () {
                                         Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    QuestionMonstersBuy()));
+                                          context,
+                                          MaterialPageRoute(
+                                            builder:
+                                                (context) => AmongUs(title: ''),
+                                          ),
+                                        );
                                       },
                                       icon: Icon(
                                         Icons.not_listed_location_sharp,
@@ -265,7 +296,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         color: Color.fromRGBO(70, 29, 124, 1),
                                       ),
                                     ),
-                                  )
+                                  ),
                                 ],
                                 if (currentpage == 'Images/thirdF.png') ...[
                                   Positioned(
@@ -275,10 +306,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                     child: IconButton(
                                       onPressed: () {
                                         Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    QuestionMonstersBuy()));
+                                          context,
+                                          MaterialPageRoute(
+                                            builder:
+                                                (context) =>
+                                                    QuestionMonstersBuy(),
+                                          ),
+                                        );
                                       },
                                       icon: Icon(
                                         Icons.not_listed_location_sharp,
@@ -302,7 +336,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                   Positioned(
                                     ///Floor 3 - Picture (Tesla_Coil.jpeg and teslacoil_farview.jpeg)- On what floor of PFT is the Musical tesla coil located?
-
                                     top: mapHeight * 0.27,
                                     left: mapWidth * 0.61,
                                     child: IconButton(
@@ -327,8 +360,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ),
                                     ),
                                   ),
-                                ]
-                              ])),
+                                ],
+                              ],
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -417,28 +452,30 @@ class QuestionMonstersBuy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("EXample page")),
-        body: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                TextField(
-                  controller: _controller,
-                  decoration: InputDecoration(labelText: "Check Your Answer"),
-                ),
-                SizedBox(
-                    height: 20), // Adds space between the TextField and button
-                ElevatedButton(
-                  onPressed: () {
-                    // Handle input validation here
-                  },
-                  child: Text("Submit"),
-                ),
-              ],
-            ),
+      appBar: AppBar(title: Text("EXample page")),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              TextField(
+                controller: _controller,
+                decoration: InputDecoration(labelText: "Check Your Answer"),
+              ),
+              SizedBox(
+                height: 20,
+              ), // Adds space between the TextField and button
+              ElevatedButton(
+                onPressed: () {
+                  // Handle input validation here
+                },
+                child: Text("Submit"),
+              ),
+            ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
 
@@ -567,8 +604,10 @@ class _FillInTheBlankQuizState extends State<FillInTheBlankQuiz> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-                child: const Text("Return to Questions",
-                    style: TextStyle(fontSize: 18)),
+                child: const Text(
+                  "Return to Questions",
+                  style: TextStyle(fontSize: 18),
+                ),
               ),
           ],
         ),
@@ -667,13 +706,15 @@ class _QuizPageExState extends State<QuizPageEx> {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 5),
                 child: ElevatedButton(
-                  onPressed: selectedAnswerIndex == null
-                      ? () => checkAnswer(index)
-                      : null,
+                  onPressed:
+                      selectedAnswerIndex == null
+                          ? () => checkAnswer(index)
+                          : null,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: selectedAnswerIndex == null
-                        ? Colors.deepPurple
-                        : index == correctAnswerIndex
+                    backgroundColor:
+                        selectedAnswerIndex == null
+                            ? Colors.deepPurple
+                            : index == correctAnswerIndex
                             ? Colors.green
                             : (selectedAnswerIndex == index
                                 ? Colors.red
@@ -695,9 +736,10 @@ class _QuizPageExState extends State<QuizPageEx> {
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: selectedAnswerIndex == correctAnswerIndex
-                      ? Colors.green
-                      : Colors.red,
+                  color:
+                      selectedAnswerIndex == correctAnswerIndex
+                          ? Colors.green
+                          : Colors.red,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -772,7 +814,6 @@ class Plane extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 20), // Spacer
-
             // Image
             Image.asset(
               'images/hss.jpeg', // Replace with appropriate image for question
@@ -781,22 +822,21 @@ class Plane extends StatelessWidget {
               fit: BoxFit.cover,
             ),
             const SizedBox(height: 20), // Spacer
-
             // Next Button
             ElevatedButton(
               onPressed: () {
                 // Navigate to the next screen
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => PlaneQ(),
-                  ),
+                  MaterialPageRoute(builder: (context) => PlaneQ()),
                 );
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color.fromRGBO(70, 29, 124, 1),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 30,
+                  vertical: 15,
+                ),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -831,7 +871,7 @@ class _PlaneQState extends State<PlaneQ> {
     "Tri-Beta",
     "National Engineering Honor Society",
     "Tau Beta Pi",
-    "Phi Beta Kappa"
+    "Phi Beta Kappa",
   ]; //change answer choices
   int correctAnswerIndex =
       2; // "Tau Beta Pi" is correct, changes correct answer
@@ -848,10 +888,7 @@ class _PlaneQState extends State<PlaneQ> {
   void goHome() {
     Navigator.pushAndRemoveUntil(
       context,
-      MaterialPageRoute(
-          builder: (context) => const MyHomePage(
-                title: '',
-              )),
+      MaterialPageRoute(builder: (context) => const MyHomePage(title: '')),
       (Route<dynamic> route) => false, // Remove all routes
     );
   }
@@ -876,13 +913,15 @@ class _PlaneQState extends State<PlaneQ> {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 5),
                 child: ElevatedButton(
-                  onPressed: selectedAnswerIndex == null
-                      ? () => checkAnswer(index)
-                      : null,
+                  onPressed:
+                      selectedAnswerIndex == null
+                          ? () => checkAnswer(index)
+                          : null,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: selectedAnswerIndex == null
-                        ? Colors.deepPurple
-                        : index == correctAnswerIndex
+                    backgroundColor:
+                        selectedAnswerIndex == null
+                            ? Colors.deepPurple
+                            : index == correctAnswerIndex
                             ? Colors.green
                             : (selectedAnswerIndex == index
                                 ? Colors.red
@@ -904,9 +943,10 @@ class _PlaneQState extends State<PlaneQ> {
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: selectedAnswerIndex == correctAnswerIndex
-                      ? Colors.green
-                      : Colors.red,
+                  color:
+                      selectedAnswerIndex == correctAnswerIndex
+                          ? Colors.green
+                          : Colors.red,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -980,7 +1020,6 @@ class Monster extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 20), // Spacer
-
             // Image
             Image.asset(
               'images/Vendingmachine(1stfloor).jpeg', // Replace with appropriate image for question
@@ -989,22 +1028,21 @@ class Monster extends StatelessWidget {
               fit: BoxFit.cover,
             ),
             const SizedBox(height: 20), // Spacer
-
             // Next Button
             ElevatedButton(
               onPressed: () {
                 // Navigate to the next screen
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => const MonsterQ(),
-                  ),
+                  MaterialPageRoute(builder: (context) => const MonsterQ()),
                 );
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color.fromRGBO(70, 29, 124, 1),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 30,
+                  vertical: 15,
+                ),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -1039,7 +1077,7 @@ class _MonsterQState extends State<MonsterQ> {
     "Just 1",
     "2",
     "All 3",
-    "None"
+    "None",
   ]; //change answer choices
   int correctAnswerIndex = 2; // "all 3" is correct, changes correct answer
   int? selectedAnswerIndex;
@@ -1055,10 +1093,7 @@ class _MonsterQState extends State<MonsterQ> {
   void goHome() {
     Navigator.pushAndRemoveUntil(
       context,
-      MaterialPageRoute(
-          builder: (context) => const MyHomePage(
-                title: '',
-              )),
+      MaterialPageRoute(builder: (context) => const MyHomePage(title: '')),
       (Route<dynamic> route) => false, // Remove all routes
     );
   }
@@ -1083,13 +1118,15 @@ class _MonsterQState extends State<MonsterQ> {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 5),
                 child: ElevatedButton(
-                  onPressed: selectedAnswerIndex == null
-                      ? () => checkAnswer(index)
-                      : null,
+                  onPressed:
+                      selectedAnswerIndex == null
+                          ? () => checkAnswer(index)
+                          : null,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: selectedAnswerIndex == null
-                        ? Colors.deepPurple
-                        : index == correctAnswerIndex
+                    backgroundColor:
+                        selectedAnswerIndex == null
+                            ? Colors.deepPurple
+                            : index == correctAnswerIndex
                             ? Colors.green
                             : (selectedAnswerIndex == index
                                 ? Colors.red
@@ -1111,9 +1148,10 @@ class _MonsterQState extends State<MonsterQ> {
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: selectedAnswerIndex == correctAnswerIndex
-                      ? Colors.green
-                      : Colors.red,
+                  color:
+                      selectedAnswerIndex == correctAnswerIndex
+                          ? Colors.green
+                          : Colors.red,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -1187,7 +1225,6 @@ class Arm extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 20), // Spacer
-
             // Image
             Image.asset(
               'images/Robotic_Arm.jpeg', // Replace with appropriate image for question
@@ -1196,22 +1233,21 @@ class Arm extends StatelessWidget {
               fit: BoxFit.cover,
             ),
             const SizedBox(height: 20), // Spacer
-
             // Next Button
             ElevatedButton(
               onPressed: () {
                 // Navigate to the next screen
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => const ArmQ(),
-                  ),
+                  MaterialPageRoute(builder: (context) => const ArmQ()),
                 );
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color.fromRGBO(70, 29, 124, 1),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 30,
+                  vertical: 15,
+                ),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -1246,7 +1282,7 @@ class _ArmQState extends State<ArmQ> {
     "1224",
     "1390",
     "1500",
-    "1300"
+    "1300",
   ]; //change answer choices
   int correctAnswerIndex = 3; // "1300" is correct, changes correct answer
   int? selectedAnswerIndex;
@@ -1262,10 +1298,7 @@ class _ArmQState extends State<ArmQ> {
   void goHome() {
     Navigator.pushAndRemoveUntil(
       context,
-      MaterialPageRoute(
-          builder: (context) => const MyHomePage(
-                title: '',
-              )),
+      MaterialPageRoute(builder: (context) => const MyHomePage(title: '')),
       (Route<dynamic> route) => false, // Remove all routes
     );
   }
@@ -1290,13 +1323,15 @@ class _ArmQState extends State<ArmQ> {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 5),
                 child: ElevatedButton(
-                  onPressed: selectedAnswerIndex == null
-                      ? () => checkAnswer(index)
-                      : null,
+                  onPressed:
+                      selectedAnswerIndex == null
+                          ? () => checkAnswer(index)
+                          : null,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: selectedAnswerIndex == null
-                        ? Colors.deepPurple
-                        : index == correctAnswerIndex
+                    backgroundColor:
+                        selectedAnswerIndex == null
+                            ? Colors.deepPurple
+                            : index == correctAnswerIndex
                             ? Colors.green
                             : (selectedAnswerIndex == index
                                 ? Colors.red
@@ -1318,9 +1353,10 @@ class _ArmQState extends State<ArmQ> {
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: selectedAnswerIndex == correctAnswerIndex
-                      ? Colors.green
-                      : Colors.red,
+                  color:
+                      selectedAnswerIndex == correctAnswerIndex
+                          ? Colors.green
+                          : Colors.red,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -1394,7 +1430,6 @@ class Bluebook extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 20), // Spacer
-
             // Image
             Image.asset(
               'images/Vendingmachine(1stfloor).jpeg', // Replace with appropriate image for question
@@ -1403,22 +1438,21 @@ class Bluebook extends StatelessWidget {
               fit: BoxFit.cover,
             ),
             const SizedBox(height: 20), // Spacer
-
             // Next Button
             ElevatedButton(
               onPressed: () {
                 // Navigate to the next screen
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => const BluebookQ(),
-                  ),
+                  MaterialPageRoute(builder: (context) => const BluebookQ()),
                 );
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color.fromRGBO(70, 29, 124, 1),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 30,
+                  vertical: 15,
+                ),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -1464,10 +1498,7 @@ class _BluebookQState extends State<BluebookQ> {
   void goHome() {
     Navigator.pushAndRemoveUntil(
       context,
-      MaterialPageRoute(
-          builder: (context) => const MyHomePage(
-                title: '',
-              )),
+      MaterialPageRoute(builder: (context) => const MyHomePage(title: '')),
       (Route<dynamic> route) => false, // Remove all routes
     );
   }
@@ -1492,13 +1523,15 @@ class _BluebookQState extends State<BluebookQ> {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 5),
                 child: ElevatedButton(
-                  onPressed: selectedAnswerIndex == null
-                      ? () => checkAnswer(index)
-                      : null,
+                  onPressed:
+                      selectedAnswerIndex == null
+                          ? () => checkAnswer(index)
+                          : null,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: selectedAnswerIndex == null
-                        ? Colors.deepPurple
-                        : index == correctAnswerIndex
+                    backgroundColor:
+                        selectedAnswerIndex == null
+                            ? Colors.deepPurple
+                            : index == correctAnswerIndex
                             ? Colors.green
                             : (selectedAnswerIndex == index
                                 ? Colors.red
@@ -1520,9 +1553,212 @@ class _BluebookQState extends State<BluebookQ> {
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: selectedAnswerIndex == correctAnswerIndex
-                      ? Colors.green
-                      : Colors.red,
+                  color:
+                      selectedAnswerIndex == correctAnswerIndex
+                          ? Colors.green
+                          : Colors.red,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            SizedBox(height: 20),
+            if (isCorrect)
+              ElevatedButton(
+                onPressed: goHome,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  foregroundColor: Colors.white,
+                  padding: EdgeInsets.symmetric(vertical: 12),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                child: const Text("Next", style: TextStyle(fontSize: 18)),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class AmongUs extends StatelessWidget {
+  const AmongUs({super.key, required this.title});
+  final String title;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color.fromRGBO(70, 29, 124, 1),
+        title: Text.rich(
+          TextSpan(
+            children: [
+              TextSpan(
+                text: "LSU",
+                style: TextStyle(
+                  color: const Color.fromRGBO(253, 208, 35, 1),
+                  fontSize: 45,
+                  fontFamily: 'Forza',
+                ),
+              ),
+              TextSpan(
+                text: "  Scavenger Hunt",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 30,
+                  fontFamily: 'Forza',
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // Text
+            const Text(
+              'Please locate this image on campus. Once you find it, click the button below to move on to the next step!',
+              style: TextStyle(
+                color: Color.fromRGBO(253, 208, 35, 1),
+                fontSize: 24,
+                fontFamily: 'Forza',
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 20), // Spacer
+            // Image
+            Image.asset(
+              'images/AmongUs.jpeg', // Replace with appropriate image for question
+
+              height: 350,
+              fit: BoxFit.cover,
+            ),
+            const SizedBox(height: 20), // Spacer
+            // Next Button
+            ElevatedButton(
+              onPressed: () {
+                // Navigate to the next screen
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const AmongUsQ()),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color.fromRGBO(70, 29, 124, 1),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 30,
+                  vertical: 15,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              child: const Text(
+                'Next',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontFamily: 'Forza',
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class AmongUsQ extends StatefulWidget {
+  const AmongUsQ({super.key});
+
+  @override
+  _AmongUsQState createState() => _AmongUsQState();
+}
+
+class _AmongUsQState extends State<AmongUsQ> {
+  String question =
+      "What is the room number that contains the Among Us artwork on a whiteboard?"; //change question
+  List<String> options = [
+    "2317",
+    "2219",
+    "2700",
+    "2418",
+  ]; //change answer choices
+  int correctAnswerIndex = 0; // "2317" is correct, changes correct answer
+  int? selectedAnswerIndex;
+  bool isCorrect = false; // Track if the answer is correct
+
+  void checkAnswer(int index) {
+    setState(() {
+      selectedAnswerIndex = index;
+      isCorrect = (index == correctAnswerIndex);
+    });
+  }
+
+  void goHome() {
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => const MyHomePage(title: '')),
+      (Route<dynamic> route) => false, // Remove all routes
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: CustomAppBar(),
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              question,
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 20),
+            ...List.generate(options.length, (index) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 5),
+                child: ElevatedButton(
+                  onPressed:
+                      selectedAnswerIndex == null
+                          ? () => checkAnswer(index)
+                          : null,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor:
+                        selectedAnswerIndex == null
+                            ? Colors.deepPurple
+                            : index == correctAnswerIndex
+                            ? Colors.green
+                            : (selectedAnswerIndex == index
+                                ? Colors.red
+                                : Colors.blue),
+                  ),
+                  child: Text(
+                    options[index],
+                    style: TextStyle(fontSize: 18, color: Colors.yellow),
+                  ),
+                ),
+              );
+            }),
+            SizedBox(height: 20),
+            if (selectedAnswerIndex != null)
+              Text(
+                selectedAnswerIndex == correctAnswerIndex
+                    ? "Correct!"
+                    : "Wrong! The correct answer is ${options[correctAnswerIndex]}.",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color:
+                      selectedAnswerIndex == correctAnswerIndex
+                          ? Colors.green
+                          : Colors.red,
                 ),
                 textAlign: TextAlign.center,
               ),
