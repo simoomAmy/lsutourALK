@@ -39,7 +39,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
-
   final String title;
 
   @override
@@ -52,18 +51,19 @@ class _MyHomePageState extends State<MyHomePage> {
   String secondFloor = 'Images/secondF.png';
   String thirdFloor = 'Images/thirdF.png';
   String buttonOne = 'true';
-  
 
   void changeMap1() {
     setState(() {
       currentpage = firstFloor;
     });
   }
+
   void changeMap2() {
     setState(() {
       currentpage = secondFloor;
     });
   }
+
   void changeMap3() {
     setState(() {
       currentpage = thirdFloor;
@@ -104,24 +104,32 @@ class _MyHomePageState extends State<MyHomePage> {
         child: LayoutBuilder(
           builder: (context, constraints) {
             double mapWidth = constraints.maxWidth;
-            double mapHeight = constraints.maxHeight*0.80;// Adjust aspect ratio based on your image
+            double mapHeight = constraints.maxHeight *
+                0.80; // Adjust aspect ratio based on your image
 
             return Stack(
               children: [
-
                 Row(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(  left: 70.0,top: 500.0, bottom: 500.0),
-                      child: Column(//these are the buttons
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10.0, vertical: 20.0),
+                      child: Column(
+                        //these are the buttons
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          ElevatedButton(onPressed: changeMap1 , child: Text('  First Floor  ')),
-                          ElevatedButton(onPressed: changeMap2 , child: Text('Second Floor')),
-                          ElevatedButton(onPressed: changeMap3 , child: Text('  Third Floor  '))
+                          ElevatedButton(
+                              onPressed: changeMap1,
+                              child: Text('  First Floor  ')),
+                          ElevatedButton(
+                              onPressed: changeMap2,
+                              child: Text('Second Floor')),
+                          ElevatedButton(
+                              onPressed: changeMap3,
+                              child: Text('  Third Floor  '))
                         ],
                       ),
-                    ),//buttons for the floors above
+                    ), //buttons for the floors above
                     Expanded(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -129,26 +137,35 @@ class _MyHomePageState extends State<MyHomePage> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(bottom: 30.0),
-                            child: Text('    Click the buttons to find all \nthe keys and end your journey.', style: TextStyle(color: Color.fromRGBO(253, 208, 35, 1),fontSize: 30, fontFamily: 'Forza')),
+                            child: Text(
+                                '    Click the buttons to find all \nthe keys and end your journey.',
+                                style: TextStyle(
+                                    color: Color.fromRGBO(253, 208, 35, 1),
+                                    fontSize: 30,
+                                    fontFamily: 'Forza')),
                           ),
                           SizedBox(
-                            width: mapWidth,
-                            height: mapHeight,
-                            child: Stack(
-                              children: [
+                              width: mapWidth,
+                              height: mapHeight,
+                              child: Stack(children: [
                                 Align(
                                   alignment: Alignment.center,
-                                  child: Image.asset(
-                                      currentpage,
-                                      fit: BoxFit.fill
-                                  ),
+                                  child: Image.asset(currentpage,
+                                      fit: BoxFit.contain),
                                 ),
-                                if(currentpage == 'Images/firstF.png')...[
-                                  Positioned(//Floor 1 - Picture (Vendingmachine(1stfloor).jpeg) - What floor contains a vending machine where you can purchase Monster energy drinks?
+                                if (currentpage == 'Images/firstF.png') ...[
+                                  Positioned(
+                                    //Floor 1 - Picture (Vendingmachine(1stfloor).jpeg) - What floor contains a vending machine where you can purchase Monster energy drinks?
                                     top: mapHeight * 0.16,
                                     left: mapWidth * 0.33,
                                     child: IconButton(
-                                      onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => QuestionMonstersBuy()));},
+                                      onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    QuestionMonstersBuy()));
+                                      },
                                       icon: Icon(
                                         Icons.not_listed_location_sharp,
                                         size: 50,
@@ -156,8 +173,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ),
                                     ),
                                   ),
-                                  Positioned(//Floor 1 - Picture (Honor Society symbol(1stfloor).jpeg) - Where can the Tau Beta Pi sign be found?
-                                  top: mapHeight * 0.3,
+                                  Positioned(
+                                    //Floor 1 - Picture (Honor Society symbol(1stfloor).jpeg) - Where can the Tau Beta Pi sign be found?
+                                    top: mapHeight * 0.3,
                                     left: mapWidth * 0.45,
                                     child: IconButton(
                                       onPressed: () {},
@@ -168,8 +186,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ),
                                     ),
                                   ),
-                                  Positioned(//Floor 1 - Picture (Robotic_Arm.jpeg) - Room 1300 - What room contains the Fanuc Robotic arm?
-                                  top: mapHeight * 0.27,
+                                  Positioned(
+                                    //Floor 1 - Picture (Robotic_Arm.jpeg) - Room 1300 - What room contains the Fanuc Robotic arm?
+                                    top: mapHeight * 0.27,
                                     left: mapWidth * 0.61,
                                     child: IconButton(
                                       onPressed: () {},
@@ -180,8 +199,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ),
                                     ),
                                   ),
-                                  Positioned(//Floor 1 - Picture (Vendingmachine(1stfloor).jpeg) - What floor contains a vending machine where you can purchase BlueBooks?
-                                  top: mapHeight * 0.7,
+                                  Positioned(
+                                    //Floor 1 - Picture (Vendingmachine(1stfloor).jpeg) - What floor contains a vending machine where you can purchase BlueBooks?
+                                    top: mapHeight * 0.7,
                                     left: mapWidth * 0.46,
                                     child: IconButton(
                                       onPressed: () {},
@@ -192,14 +212,20 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ),
                                     ),
                                   ),
-
                                 ],
-                                if(currentpage == 'Images/secondF.png')...[
-                                  Positioned(//Floor 2 - Picture (Among Us Mosaic.jpeg) - Room 2317 - What room can the beautiful Among Us piece be found in
-                                  top: mapHeight * 0.13,
+                                if (currentpage == 'Images/secondF.png') ...[
+                                  Positioned(
+                                    //Floor 2 - Picture (Among Us Mosaic.jpeg) - Room 2317 - What room can the beautiful Among Us piece be found in
+                                    top: mapHeight * 0.13,
                                     left: mapWidth * 0.605,
                                     child: IconButton(
-                                      onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => QuestionMonstersBuy()));},
+                                      onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    QuestionMonstersBuy()));
+                                      },
                                       icon: Icon(
                                         Icons.not_listed_location_sharp,
                                         size: 50,
@@ -207,8 +233,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ),
                                     ),
                                   ),
-                                  Positioned(//?Floor 2 - Picture (MMR_upclose.jpeg) - Room 2348 - What floor can the MMR machine be found?
-                                  top: mapHeight * 0.28,
+                                  Positioned(
+                                    //?Floor 2 - Picture (MMR_upclose.jpeg) - Room 2348 - What floor can the MMR machine be found?
+                                    top: mapHeight * 0.28,
                                     left: mapWidth * 0.459,
                                     child: IconButton(
                                       onPressed: () {},
@@ -219,14 +246,20 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ),
                                     ),
                                   )
-
                                 ],
-                                if(currentpage == 'Images/thirdF.png')...[
-                                  Positioned(//?Floor 3 - Picture (ModelPlane.jpeg) - Room (Office) 3261 - What floor and office can the model plane be found?
-                                  top: mapHeight * 0.36,
+                                if (currentpage == 'Images/thirdF.png') ...[
+                                  Positioned(
+                                    //?Floor 3 - Picture (ModelPlane.jpeg) - Room (Office) 3261 - What floor and office can the model plane be found?
+                                    top: mapHeight * 0.36,
                                     left: mapWidth * 0.4,
                                     child: IconButton(
-                                      onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => QuestionMonstersBuy()));},
+                                      onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    QuestionMonstersBuy()));
+                                      },
                                       icon: Icon(
                                         Icons.not_listed_location_sharp,
                                         size: 50,
@@ -234,8 +267,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ),
                                     ),
                                   ),
-                                  Positioned(//Floor 3 - Picture (Trophywall(3rdfloor).jpeg) - What floor can the shelves filled with trophies be found
-                                  top: mapHeight * 0.3,
+                                  Positioned(
+                                    //Floor 3 - Picture (Trophywall(3rdfloor).jpeg) - What floor can the shelves filled with trophies be found
+                                    top: mapHeight * 0.3,
                                     left: mapWidth * 0.45,
                                     child: IconButton(
                                       onPressed: () {},
@@ -246,9 +280,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ),
                                     ),
                                   ),
-                                  Positioned(///Floor 3 - Picture (Tesla_Coil.jpeg and teslacoil_farview.jpeg)- On what floor of PFT is the Musical tesla coil located?
+                                  Positioned(
+                                    ///Floor 3 - Picture (Tesla_Coil.jpeg and teslacoil_farview.jpeg)- On what floor of PFT is the Musical tesla coil located?
 
-                                  top: mapHeight * 0.27,
+                                    top: mapHeight * 0.27,
                                     left: mapWidth * 0.61,
                                     child: IconButton(
                                       onPressed: () {},
@@ -259,8 +294,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ),
                                     ),
                                   ),
-                                  Positioned(//Floor 3 - Picture (Universestandard_chart.jpeg) - Room 3316 - Professor David Koppelman - The funny universe chart is located on the third floor of pft, which room number and professor has this placed on their door?
-                                  top: mapHeight * 0.035,
+                                  Positioned(
+                                    //Floor 3 - Picture (Universestandard_chart.jpeg) - Room 3316 - Professor David Koppelman - The funny universe chart is located on the third floor of pft, which room number and professor has this placed on their door?
+                                    top: mapHeight * 0.035,
                                     left: mapWidth * 0.465,
                                     child: IconButton(
                                       onPressed: () {},
@@ -271,17 +307,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ),
                                     ),
                                   ),
-
                                 ]
-                              ]
-                            )
-                          ),
+                              ])),
                         ],
                       ),
                     ),
                   ],
                 ),
-
 
                 // Positioned(
                 //   //LSU STADIUM
@@ -358,40 +390,34 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class QuestionMonstersBuy extends StatelessWidget{
+class QuestionMonstersBuy extends StatelessWidget {
   final TextEditingController _controller = TextEditingController();
-   QuestionMonstersBuy({super.key});
-  
+  QuestionMonstersBuy({super.key});
+
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("EXample page")),
-      body:Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              TextField(
-                controller: _controller,
-                decoration: InputDecoration(
-                  labelText: "Check Your Answer"
+        appBar: AppBar(title: Text("EXample page")),
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                TextField(
+                  controller: _controller,
+                  decoration: InputDecoration(labelText: "Check Your Answer"),
                 ),
-              ),
-              SizedBox(height: 20), // Adds space between the TextField and button
-              ElevatedButton(
-                onPressed: () {
-                  // Handle input validation here
-                },
-                child: Text("Submit"),
-              ),
-            ],
+                SizedBox(
+                    height: 20), // Adds space between the TextField and button
+                ElevatedButton(
+                  onPressed: () {
+                    // Handle input validation here
+                  },
+                  child: Text("Submit"),
+                ),
+              ],
+            ),
           ),
-        ),
-      )
-        
-    );
-        
-
+        ));
   }
-
 }
